@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="470,371" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="547.2,460.4" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="48">
       <x:String>System.Activities</x:String>
@@ -27,6 +27,13 @@
       <x:String>System.Windows.Markup</x:String>
       <x:String>UiPath.Mail</x:String>
       <x:String>UiPath.Presentations</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -55,11 +62,41 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>UiPath.Presentations</AssemblyReference>
       <AssemblyReference>UiPath.Presentations.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <ueab:SequenceX DisplayName="Single Excel Process Scope">
+  <ueab:SequenceX DisplayName="Single Excel Process Scope" sap:VirtualizedContainerService.HintSize="454,395.2" sap2010:WorkflowViewState.IdRef="SequenceX_1">
     <ueab:SequenceX.Variables>
       <Variable x:TypeArguments="ue:IWorkbookQuickHandle" Default="[new WorkbookQuickHandle(workbookPath:=&quot;Project_Notebook.xlsx&quot;,visible:=True,autoSave:=False,createNew:=True,readOnly:=False,isWorkspace:=True)]" Name="Notes" />
     </ueab:SequenceX.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Browser Chrome: Managing projects with GIT" sap:VirtualizedContainerService.HintSize="412,305.2" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="47058538-cb36-42b7-a9cf-991e38a7fbdd" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,83.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-16, -16, 3872, 2092" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="d3442e5909a48be056226dc44d33be8f.png" Selector="&lt;html app='chrome.exe' title='Managing projects with GIT' /&gt;" Url="https://docs.uipath.com/studiox/docs/managing-projects-with-git" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
   </ueab:SequenceX>
 </Activity>
